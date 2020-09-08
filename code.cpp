@@ -3,7 +3,7 @@
  */
 
 
-const int DATA_PIN            = 4;
+const int DATA_PIN            = 3; //Must be a interrupt capable pin
 const int LED_GROUND_PIN      = 8;
 
 const int PINS_COUNT          = 4;
@@ -95,7 +95,7 @@ void setup() {
   setGlobalState(LOW);
 
   pinMode(DATA_PIN, INPUT_PULLUP);
-  attachInterrupt(1, incrementRpmCount, FALLING);
+  attachInterrupt(digitalPinToInterrupt(DATA_PIN), incrementRpmCount, FALLING);
   Serial.begin(9600);
 }
 
